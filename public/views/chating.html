@@ -1,0 +1,49 @@
+<style type="text/css">
+  /**********************top部分**********************/
+  .user_top { background-color: #11b8f5; border-bottom: 0.055556rem solid #37afcd; padding: 0 0.319444rem; position: fixed;top: 0;width: 10.0rem;z-index: 2; height: 1.305556rem;}
+  .user_top .msg{height: 1.305556rem;line-height: 1.305556rem;color: #fff;font-size: 0.444444rem;display: inline-block;}
+  .user_top .contracts {color: #fff; background-color: #11b8f5; position: absolute; left: 50%; top: 50%;  -webkit-transform: -webkit-translate3d(-50%, -50%, 0); -ms-transform: -ms-translate3d(-50%, -50%, 0); -o-transform: -o-translate3d(-50%, -50%, 0); transform: translate3d(-50%, -50%, 0); }
+  .user_top .contracts span { line-height: 0.722222rem; height: 0.722222rem; display: inline-block; width: 1.694444rem; text-align: center; font-size: 0.416667rem;font-weight: 700;}
+  .user_top .contacts_more { display: block; height: 1.305556rem ;line-height: 1.305556rem ;font-size: 0.333333rem; float: right; width: 1.111111rem;text-align: center;text-decoration: none;color:#1B1818;}
+  .user_top .contacts_more img{vertical-align: middle;}
+  /*******************chatContent***********************/
+  .chatContent{padding:1.505556rem 0.185185rem;overflow-y: auto;height: 100%;}
+  .chatContent .header_img{height: 0.925926rem;width: 0.925926rem;border-radius: 50%;vertical-align: middle;vertical-align: top;}
+  .chatContent .chat_text{border:1px solid #ccc;border-radius: 5px;padding: 5px; display: inline-block;max-width: 6.5rem;min-height: 0.925926rem;line-height: 0.6rem;font-size: 0.388889rem;margin:0.138889rem 0.37037rem;position:relative;}
+  .chatContent>ul>li{margin:0.185185rem 0;}
+  .chatContent>ul>li:after{content:"";display: block;clear: both;}
+  .chatContent .chat_friend .chat_text:before{content:"";display: block;position:absolute;top:0;left:-0.277778rem; border-top:0.185185rem solid transparent;border-right:0.277778rem solid #ccc;border-bottom:0.37037rem solid transparent;height: 0;width: 0;}
+  .chatContent .chat_friend .chat_text:after{content:"";display: block;position:absolute;top:0.05rem;left:-0.207778rem; border-top:0.145185rem solid transparent;border-right:0.237778rem solid #fff;border-bottom:0.33037rem solid transparent;height: 0;width: 0;}
+  .chatContent .chat_user .header_img {float:right;}
+  .chatContent .chat_user .chat_text{float:right;text-align: right;text-align-last: left;}
+  .chatContent .chat_user .chat_text:before{content:"";display: block;position:absolute;top:0;right:-0.277778rem; border-top:0.185185rem solid transparent;border-left:0.277778rem solid #ccc;border-bottom:0.37037rem solid transparent;height: 0;width: 0;}
+  .chatContent .chat_user .chat_text:after{content:"";display: block;position:absolute;top:0.05rem;right:-0.207778rem; border-top:0.145185rem solid transparent;border-left:0.237778rem solid #fff;border-bottom:0.33037rem solid transparent;height: 0;width: 0;}
+  /****************chat_bottom*********************/
+  .chat_bottom{position:fixed;bottom:0;width:10.0rem;border-top: 1px solid #ccc;background-color: #fff;}
+  .chat_bottom input{box-sizing: content-box;margin: 0.092593rem 0 0 0.4rem;width: 7.8rem;height: 0.925926rem;line-height: 0.925926rem;resize: none;border-radius: 0.092593rem;}
+  .chat_bottom button{width: 1.2rem;height: 0.925926rem;margin: 0.092593rem 0.185185rem;float: right;font-weight: 700;}
+  .chat_bottom .send_empty{background-color: #A9F82F;}
+</style>
+<div class="onepage" ng-controller="chatingCtrl">
+  <section class="user_top clearfix" >
+    <a href="#/user/communicating" class="msg">&lt;&nbsp;消息&nbsp;(<span>4</span>)</a>
+    <div class="contracts">
+      <span>{{chater.friendId.nickName}}</span>
+    </div>
+    <a href="javascript:;" class="contacts_more"><img src="./style/images/userIcon.png" width="60%" height="60%" /></a>
+  </section>
+  <section class="chatContent">
+    <ul id="chatContentList" scroll-to-bottom>
+      <li ng-repeat="history in chater.chatHistory track by $index" ng-class="msgFrom_class(history.fromUserId._id)">
+        <img class="header_img" ng-src={{::history.fromUserId.headerPortrait}} />
+        <div class="chat_text">{{::history.postMessage}}</div>
+      </li>
+    </ul>
+  </section>
+  <section class="chat_bottom">
+    <form name="send_form">
+      <input name=send_textarea ng-model='chat_msg' required />
+      <button ng-click="send_msg()" ng-class="{send_empty: !send_form.$error.required}" ng-disabled="send_form.$error.required">send</button>
+    </form>
+  </section>
+</div>

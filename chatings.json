@@ -1,0 +1,71 @@
+[{
+  "id":0,
+  "username": "波塞冬0",
+  "header_img": "./style/images/header.jpg",
+  "lasttime": "22:10",
+  "lastword": "what do you want to do ",
+  "chatHistory":[
+      {"from":"user","content":"你昨天说要请我吃饭"},
+      {"from":"friend","content":"放屁，我什么时候说过了"},
+      {"from":"user","content":"你这就是要耍赖的意思咯"}
+    ]
+}, {
+  "id":1,
+  "username": "波塞冬1",
+  "header_img": "./style/images/header.jpg",
+  "lasttime": "22:10",
+  "lastword": "what do you want to do ",
+  "chatHistory":[]
+}, {
+  "id":2,
+  "username": "波塞冬2",
+  "header_img": "./style/images/header.jpg",
+  "lasttime": "22:10",
+  "lastword": "what do you want to do ",
+  "chatHistory":[]
+}, {
+  "id":3,
+  "username": "波塞冬3",
+  "header_img": "./style/images/header.jpg",
+  "lasttime": "22:10",
+ 
+  "lastword": "what do you want to do ",
+  "chatHistory":[]
+}, {
+  "id":4,
+  "username": "波塞冬4",
+  "header_img": "./style/images/header.jpg",
+  "lasttime": "22:10",
+  
+  "lastword": "what do you want to do ",
+  "chatHistory":[]
+}, {
+  "id":5,
+  "username": "波塞冬5",
+  "header_img": "./style/images/header.jpg",
+  "lasttime": "22:10",
+  
+  "lastword": "what do you want to do ",
+  "chatHistory":[]
+}, {
+  "id":6,
+  "username": "波塞冬6",
+  "header_img": "./style/images/header.jpg",
+  "lasttime": "22:10",
+  "lastword": "what do you want to do ",
+  "chatHistory":[]
+}, {
+  "id":7,
+  "username": "波塞冬7",
+  "header_img": "./style/images/header.jpg",
+  "lasttime": "22:10",
+  "lastword": "what do you want to do ",
+  "chatHistory":[]
+}, {
+  "id":8,
+  "username": "波塞冬8",
+  "header_img": "./style/images/header.jpg",
+  "lasttime": "22:10",
+  "lastword": "what do you want to do ",
+  "chatHistory":[]
+}]

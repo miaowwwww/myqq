@@ -1,0 +1,64 @@
+<style type="text/css">
+  /**********************top部分**********************/
+  .user_top { background-color: #11b8f5; border-bottom: 0.055556rem solid #37afcd; padding: 0 0.319444rem; position: fixed;top: 0;width: 10.0rem;z-index: 2; height: 1.305556rem;}
+  .user_top img { width: 1.041667rem; height: 1.041667rem; border-radius: 50%;margin-top: 0.138889rem; }
+  .user_top .contracts {color: #fff; background-color: #11b8f5; position: absolute; left: 50%; top: 50%;  -webkit-transform: -webkit-translate3d(-50%, -50%, 0); -ms-transform: -ms-translate3d(-50%, -50%, 0); -o-transform: -o-translate3d(-50%, -50%, 0); transform: translate3d(-50%, -50%, 0); }
+  .user_top .contracts span { line-height: 0.722222rem; height: 0.722222rem; display: inline-block; width: 1.694444rem; text-align: center; font-size: 0.416667rem;font-weight: 700;}
+  .user_top .contacts_more { display: block; height: 1.305556rem ;line-height: 1.305556rem ;font-size: 0.333333rem; float: right; width: 1.111111rem;text-align: center;text-decoration: none;color:#1B1818;}
+
+  /********************userlist部分***********************/
+  .user_contacts {height: 100%; overflow: auto; margin-bottom:1.788889rem;padding-top:1.305556rem;  }
+  /*搜索 */
+  .user_contacts h1.search_wrap { width: 100%; padding: 0.166667rem; }
+  .user_contacts h1.search_wrap input { height: 0.833333rem; width: 90%; display: block; margin: 0 auto; background-color: #f3f3f3; text-align: center; padding: 0 0.138889rem; border-radius: 0.208333rem; border: none; }
+  /*top导航*/
+  .user_contacts ul.top_bar{border-bottom: 0.555556rem solid #f7fafa;}
+  .user_contacts .top_bar li{float: left;width: 25%;padding:0.138889rem 0;text-align: center;font-size: 0.333333rem; margin-bottom: 0.138889rem;}
+  .user_contacts .top_bar li a{display: block;color: #757373;text-decoration: none;}
+  .user_contacts .top_bar li a img{width: 0.722222rem;height: 0.722222rem;margin: 0.138889rem 0;}
+  /*分组列表*/
+  .user_contacts .listTitle{height: 1.033333rem;line-height: 1.033333rem;border-bottom: 1px solid #ccc;text-indent: 0.3rem;font-weight: 600;position: relative;}
+  .user_contacts .listTitle .listC{display: inline-block;margin:0 0.231481rem 0 0.185185rem;vertical-align: middle;width:0;height:0;border-left:0.25rem solid #2310F5;border-top:0.2rem solid transparent;border-bottom:0.2rem solid transparent; }  
+  .user_contacts .listTitle .listO{display: inline-block;margin:0 0.231481rem 0 0.185185rem;vertical-align: middle;width:0;height:0;border-top:0.25rem solid #43F510;border-left:0.2rem solid transparent;border-right:0.2rem solid transparent; }
+  .user_contacts .listTitle .online_ratio{display: inline-block;float: right;margin-right: 0.185185rem;font-weight: 400;font-size: 0.322222rem;color: #666;}
+  .user_contacts a.friend_item{display: block;position:relative;border-bottom:1px solid #ccc;}
+  .user_contacts a.friend_item img{vertical-align: middle;float:left;height: 0.925926rem;width: 0.925926rem;border-radius: 50%;margin:0.185185rem 0.277778rem;}
+  .user_contacts a.friend_item h4{font-size: 0.388889rem;font-weight: 600;height: 0.740741rem;line-height: 0.740741rem;}
+  .user_contacts a.friend_item p{color:#999;}
+</style>
+
+<section class="user_top" >
+  <a href="javascript:;"><img src="./style/images/header.jpg" alt="" /></a>
+  <div class="contracts">
+    <span>联系人</span>
+  </div> 
+  <a href="javascript:;" class="contacts_more">更多</a>
+</section>
+
+<section class="user_contacts" ng-controller="contactsCtrl">
+  <h1 class="search_wrap">
+    <input type="text" name="search" placeholder="搜索" />
+  </h1>
+  <ul class="clearfix top_bar">
+    <li><a><img src="./style/images/yunIcon.png" /><p>新朋友</p></a></li><li><a><img src="./style/images/userIcon.png" /><p>特别关心</p></a></li><li><a><img src="./style/images/starsIcon.png" /><p>群组</p></a></li><li><a><img src="./style/images/starsIcon.png" /><p>公众号</p></a></li>
+  </ul>
+  <!-- 分组列表 -->
+  <section>
+    <ul>
+      <li ng-repeat="group in [1,2,3,4]" ng-controller="friendGroupCtrl">
+        <h2 class="listTitle" ng-click="groupToggle()"><i class="listC" ng-class="{listO:listOpen}"></i>我的好友{{group}}<small class="online_ratio">9/20</small></h2>
+        <ul ng-show="listOpen">
+          <li ng-repeat="friend in [1,2,3,4]">
+            <a class="friend_item clearfix">
+              <img src="./style/images/header.jpg" />
+              <h4>友人{{friend}}</h4>
+              <p>友人{{friend}}说不喜欢你</p>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li><h2 class="listTitle">陌生人</h2></li> 
+      <li><h2 class="listTitle">黑名单</h2></li>
+    </ul>
+  </section>
+</section>

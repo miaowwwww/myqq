@@ -1,0 +1,45 @@
+
+<div class="user_left">
+  <style type="text/css">
+    .user_left{height: 100%;width:7.944444rem; float: left;position: relative;
+      background:url(./style/images/bg.png) no-repeat;
+      background-size: cover;
+      padding-left: 0.8rem;
+    }
+    .user_left .header{margin-top: 1.5rem;}
+    .user_left .header_img{display: inline-block;}
+    .user_left .header_img img{height: 1.55rem;width: 1.55rem;margin:0.494444rem 0.4rem 0.4rem 0rem;border-radius: 50%;vertical-align: middle;}
+    .user_left .header span{font-size: 0.5rem;font-weight: 700;}
+    .user_left .header span{font-size: 0.388889rem;}
+    
+    .user_left_list{margin-top: 0.833333rem;}
+    .user_left_list li{
+      height: 0.833333rem;
+      line-height: 0.833333rem;
+      margin:0.277778rem 0.138889rem;
+    }
+    .user_left_list li a {
+      color:#fff;
+      font-size: 0.444444rem;
+    }
+  </style>
+
+  <section class="header">
+    <a class="header_img" href="javascript:;" ng-click="header_img()"><img ng-src=./{{user.headerPortrait}} /></a>
+    <span ng-bind="user.nickName">叫我先生</span>
+    <p>OK.你赢了</p>
+  </section>
+  
+  <section class="user_left_list" >
+    <ul>
+      <li><a href="javascript:;">激活会员</a></li>
+      <li><a href="javascript:;">我的钱包</a></li>
+      <li><a href="javascript:;">个性装扮</a></li>
+      <li><a href="javascript:;">我的收藏</a></li>
+      <li><a href="javascript:;">我的文件</a></li>
+      <li><a href="javascript:;">我的名片</a></li>
+    </ul>
+  </section>
+  <p><a ng-click="logout()">退出登录</a></p>
+
+</div>

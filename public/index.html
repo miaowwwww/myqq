@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+  <meta charset="UTF-8">
+
+  <!-- <link rel="icon" href="./my_favicon.ico" type="image/x-icon" /> -->
+  <!-- <link rel="shortcut icon" href="./my_favicon.ico" type="image/x-icon" /> -->
+
+  <title>Document</title>
+  <!-- 当Socket.IO绑定到http.Server后，所有以/socket.io开始的url会被其拦截 -->
+  <script type="text/javascript" src="/socket.io/socket.io.js"></script> 
+  <!-- 导入flexibel -->
+  <meta content="yes" name="apple-mobile-web-app-capable">
+  <meta content="yes" name="apple-touch-fullscreen">
+  <meta content="telephone=no,email=no" name="format-detection">
+  <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
+  <!-- 导入angularJs -->
+  <script type="text/javascript" src=./angularJs/copy_angular.js></script>
+  <script src="http://cdn.bootcss.com/angular-ui-router/0.2.18/angular-ui-router.js"></script>
+  <!-- 导入样式 -->
+  <link rel="stylesheet" type="text/css" href="./style/css/index.css">
+  <link rel="stylesheet" type="text/css" href="./style/css/reset.css">
+
+  
+  <script>
+    var app = angular.module('myApp',['ui.router'])
+      app.run(function($rootScope,$state,$location,userdbservice){
+        $rootScope.$on('$stateChangeStart',function(evt,toState,toParams,fromState,fromParams){
+          if(userdbservice.getUser() == null){
+            if(toState.name != 'login' && toState.name != 'register'){
+              // $state.go('login');
+              $location.path('/login')
+            }else{
+              
+            }
+         }
+        })
+      })
+      app.config(function($stateProvider,$urlRouterProvider){
+        $urlRouterProvider.otherwise("/login");
+
+        $stateProvider.state('login',{
+          url:'/login',
+          templateUrl:'./views/login.html'
+        });
+        $stateProvider.state('user',{
+          url:'/user',
+          templateUrl:'./views/user.html',
+        });
+        // user页中的三个分页
+        $stateProvider.state('user.communicating',{
+            url:'/communicating',
+            templateUrl:'./views/communicating.html'
+        });
+        $stateProvider.state('user.contacts',{
+            url:'/contacts',
+            templateUrl:'./views/contacts.html'
+        });
+        $stateProvider.state('user.dynamic',{
+            url:'/dynamic',
+            templateUrl:'./views/dynamic.html'
+        });
+        // 聊天页面
+        $stateProvider.state('chating',{
+          url:'/chating',
+          templateUrl:'./views/chating.html'
+        });
+        // register page
+        $stateProvider.state('register',{
+          url:'/register',
+          templateUrl:'./views/register.html'
+        });
+        $stateProvider.state('addFriend',{
+          url:'/addFriend',
+          templateUrl:'./views/addFriend.html'
+        });
+      })
+    
+  </script>
+  <!-- 导入controllers -->
+  <script src="./controllers/loginCtrl.js"></script>
+  <script src="./controllers/communicatingCtrl.js"></script>
+  <script src="./controllers/userCtrl.js"></script>
+  <script src="./controllers/contactsCtrl.js"></script>
+  <script src="./controllers/chatingCtrl.js"></script>
+  <script src="./controllers/registerCtrl.js"></script>
+  <script src="./controllers/addCtrl.js"></script>
+  <!-- 导入服务 -->
+  <script src='./services/ui_mask.js'></script>
+  <script src='./services/userdbservice.js'></script>
+  <script src='./services/getChatInFo.js'></script>
+  <script src='./services/sendMsg.js'></script>
+  <script src='./services/socket.js'></script>
+  <!-- 导入指令 -->
+  <script src='./directives/quanui-bg-color.js'></script>
+  <script src='./directives/quanui-left-drag.js'></script>
+  <script src='./directives/quanui-info-drag.js'></script>
+  <script src='./directives/quanui-user-left.js'></script>
+</head>
+<body style="overflow:hidden;">
+  <div ui-view style="height: 100%;"></div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<style type="text/css">
+  /**********************top部分**********************/
+  .user_top { background-color: #11b8f5; border-bottom: 0.055556rem solid #37afcd; padding: 0.119444rem 0.319444rem; position: fixed; top: 0; width: 10.0rem; z-index: 2; height: 1.305556rem; z-index: 99; overflow: hidden; }
+  .user_top img { width: 1.041667rem; height: 1.041667rem; border-radius: 50%; }
+  .user_top .msg_tel { border: 0.027778rem solid #fff; color: #fff; background-color: #11b8f5; border-radius: 0.361111rem; display: inline-block; margin: 0 0 0 1.7rem; overflow: hidden; }
+  .user_top .msg_tel span { line-height: 0.722222rem; height: 0.722222rem; display: inline-block; width: 1.694444rem; text-align: center; }
+  .user_top i { display: inline-block; height: 0.583333rem; width: 0.583333rem; float: right; margin-top: 0.238889rem; background: url(./style/images/moreIcon.png) no-repeat; background-size: contain; }
+
+  /********************userlist部分***********************/
+  .user_contacts {height: 100%; padding-bottom:1.788889rem;padding-top:1.305556rem; overflow-y: auto; }
+  .user_contacts h1 { width: 100%; padding: 0.166667rem; }
+  .user_contacts h1 input { height: 0.833333rem; width: 90%; display: block; margin: 0px auto; background-color: #f3f3f3; text-align: center; padding: 0px 0.138889rem; border-radius: 0.208333rem; border: none; }
+  .contacts_wrap { border-bottom: 0.027778rem solid #eee;height: 1.933333rem;}
+  .contacts_wrap .contacts_header { width: 1.416667rem; height: 1.416667rem; border-radius: 50%; float: left; margin-right: 0.5rem; }
+  .contacts_wrap span { line-height: 0.694444rem; height: 0.694444rem;}
+  .contacts_wrap .contacts_name { font-weight: 700; font-size: 0.444444rem; }
+  .contacts_wrap .contacts_last { color: #847E7E; font-size: 0.344444rem; }
+  .contacts_wrap .contacts_time { float: right; color: #845e7e; }
+  .contacts_wrap .contacts_p {}
+  .contacts_wrap .contacts_count { position: absolute; left:8.555555rem; padding: 0px 0.307778rem; border-radius: 0.416667rem; background-color: #0CF0C9; z-index: 2; }
+
+  /*动画部分*/
+  .communicatingList>.contacts_wrap{width: 100%;position: relative;overflow: hidden;}
+  .communicatingList>.contacts_wrap>a{display: block;color:#000;text-decoration: none;position:absolute;left: 0px ;top: 0px;width: 14rem;height: 100%;}
+  .communicatingList>.contacts_wrap .contacts_inside_wrap{width: 10.0rem;float:left; padding: 0.208333rem 0.5rem;}
+  .communicatingList>.contacts_wrap .rightside{float: left;height: 100%;}
+  .rightside span{width: 2rem;height:100%;display: inline-block;text-align: center;float: left;font-size: 0.388889rem;color:#fff;padding-top: 15%;}
+  .rightside span.toTop{background-color: #989494;}
+  .rightside span.del{background-color: #F81E1E;}
+
+  .communicatingMove{-webkit-transition: left 0.1s ease-out;
+  -o-transition: left 0.1s ease-out;
+  transition: left 0.1s ease-out;}
+</style>
+<div class="onepage">
+  <section class="user_top" >
+    <img ng-src="./{{user.headerPortrait}}" alt="" />
+    <div class="msg_tel">
+      <span>消息</span>
+      <span>电话</span>
+    </div> <i ng-click='addFriend()'></i>
+  </section>
+
+  <section class="user_contacts" ng-controller="communicatingCtrl">
+    <h1>
+      <input type="text" name="search" placeholder="搜索" />
+    </h1>
+    <ul class="communicatingList">
+
+      <li ng-repeat='communicater in communicaters' class="contacts_wrap">
+        <a href="#/chating" ng-click="chatWith(communicater)" quanui-left-drag>
+          <div class="contacts_inside_wrap">
+            <img class="contacts_header" ng-src='./{{communicater.friendId.headerPortrait}}' />
+            <p>
+              <span class="contacts_name">{{communicater.friendId.nickName}}</span>
+              <span class="contacts_time">{{lasttime}}22:00</span>
+            </p>
+            <p class="contacts_p">
+              <span class="contacts_last">{{lastword}}你妈喊你回家吃饭</span>
+              <span quanui-info-drag class="contacts_count">33</span>
+            </p>
+          </div>
+
+          <section class="rightside">
+            <span class="toTop">置顶</span>
+            <span class="del">删除</span>
+          </section>
+        </a>
+      </li>
+
+    </ul>
+  </section>
+</div>

@@ -1,0 +1,37 @@
+<style type="text/css">
+  .registerForm{margin-top: 0.925926rem;}
+  .registerForm li{}
+  .registerForm li>span{display: inline-block;width: 3rem;text-align:right;}
+  .registerForm li>input{margin:0.185185rem; height: 0.925926rem;line-height: 0.925926rem;}
+  .registerForm li>input[type=submit]{margin-left: 3rem; width: 4rem;}
+</style>
+
+<div ng-controller="registerCtrl">
+  <form name='registerForm' class="registerForm" novalidate>
+    <ul>
+      <li>
+        <span>账号：</span>
+        <input type="text" name="loginId" ng-model='register.loginId' maxlength="16" required/>
+      </li>
+      <li>
+        <span>用户名（昵称）：</span>
+        <input type="text" name="nickName" ng-model='register.nickName' maxlength="16" required/>
+      </li>
+      <li>
+        <span>密码：</span>
+        <input type="password" name="password" ng-model='register.password' required/>
+      </li>
+      <li>
+        <span>确认密码：</span>
+        <input type="password" name="confirmPassword" ng-model='confirmPassword' required />
+        <p ng-show="register.password != confirmPassword" style="text-align:center">两次输入密码不一致</p>
+      </li>
+      <li>
+        <input type="submit" name="submit" ng-click="submit()" ng-disabled="register.password != confirmPassword || registerForm.$invalid" />
+      </li>
+      <li>
+        <a href="#/login">返回登录页</a>
+      </li>
+    </ul>
+  </form>
+</div>

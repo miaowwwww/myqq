@@ -1,0 +1,69 @@
+
+
+<style type="text/css">
+
+  .centainter_wrap{
+    height:100%;width:22rem;
+    transform: translate3d(-7.944444rem,0,0);
+  }
+  .centainter_wrap_move{
+    transition:all 0.2s;
+  }
+  .user_wrap{
+    height: 100%;
+    -webkit-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s;
+    z-index: 2;
+    width: 10.0rem;
+    /*float: left;*/
+    position: absolute;
+    left: 7.944444rem;
+
+  }
+
+
+
+  /********************bottom部分按钮********************/
+  .user_bottom{height: 1.788889rem;overflow: hidden; position: fixed;bottom: 0;border-top: 0.027778rem solid #eee;width: 10.0rem;background-color: #fff;z-index: 99;}
+  .usre_ul{width: 100%;}
+  .user_bottom li{float: left;width: 33%;padding:0.138889rem 0;text-align: center;font-size: 0.333333rem; }
+  .user_bottom li a{display: block;color: #757373;text-decoration: none;}
+  .user_bottom li a img{width: 0.722222rem;height: 0.722222rem;margin: 0.138889rem 0;}
+
+</style>
+
+
+
+<div class="centainter_wrap" ng-controller="userCtrl">
+
+  <div quanui-user-left ></div>
+
+  <div class="user_wrap">
+
+    <div ui-view style="height:100%;width: 10rem;"></div>
+    
+    <section class="user_bottom">
+      <ul quanui-bg-color>
+        <li>
+          <a ui-sref=".communicating">
+            <img src="./style/images/yunIcon.png" />
+            <p>消息</p>
+          </a>
+        </li>
+        <li>
+          <a ui-sref=".contacts">
+            <img src="./style/images/userIcon.png" />
+            <p>联系人</p>
+          </a>
+        </li>
+        <li>
+          <a ui-sref=".dynamic">
+            <img src="./style/images/starsIcon.png" />
+            <p>动态</p>
+          </a>
+        </li>
+      </ul>
+    </section>
+  </div>
+</div>

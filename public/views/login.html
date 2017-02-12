@@ -1,0 +1,38 @@
+<style type="text/css">
+  .login_wrap{height: 100%;background-color: #E8E4E4;}
+  .img_wrap{height: 5rem;text-align:center;line-height: 5rem;}
+  .header_img{border-radius: 50%;width: 2.5rem;height: 2.5rem;vertical-align: middle}
+  input{height: 1.2rem;width: 100%;display: block;border:none;padding:0 0.277778rem;}
+  input[type=text]{border-bottom:1px solid #E8E4E4;}
+  input[type=password]{ }
+  input[type=submit]{width: 90%;background:#18A3F6; text-align: center;color:#fff;height: 1.2rem;line-height: 1.2rem;margin:0.277778rem auto;border-radius: 0.185185rem;}
+  .tip{position: absolute;bottom:0.37037rem;color:#18A3F6; padding: 0 0.462963rem;width: 100%;}
+  .cantlogin{}
+  .newuser{float:right;}
+</style>
+
+<div ng-controller="loginCtrl" class="login_wrap">
+  <div class="img_wrap">
+    <img class="header_img" src="./style/images/header.jpg" alt=""/>
+  </div>
+  <form novalidate name="loginForm">
+    <ul>
+      <li>
+        <input ng-model='loginId' type="number" name="loginId" required />
+      </li>
+      <li>
+        <input ng-model='password' type="password" name="password" required />
+      </li>
+      <li>
+        <input type="submit" name="submit" value="登录" ng-click="submit(loginId,password)" />
+      </li>
+    </ul>
+  </form>
+  <p class="tip">
+    <span class="cantlogin">无法登录</span>
+    <a href="#/register"><span class="newuser" >新用户</span></a>
+  </p>
+</div>
+
+
+

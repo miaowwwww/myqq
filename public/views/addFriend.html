@@ -1,0 +1,28 @@
+<style type="text/css">
+  .addFriendWrap{height: 100%;background-color: #fff;}
+  .addFriendWrap form{}
+
+</style>
+
+<section class='addFriendWrap' ng-controller="addCtrl">
+  <form name='addFriendForm' novalidate>
+    <span for='loginId'>对方账号：</span>
+    <input type="text" name="loginId" ng-model='addLoginId' required />
+    <button ng-click="addFriend()" ng-disabled="addFriendForm.loginId.$invalid" >确认</button>
+  </form>
+  <a href="#/user/communicating">返回</a>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
